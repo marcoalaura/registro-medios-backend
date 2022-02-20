@@ -1,0 +1,78 @@
+  <div class="container">
+    <h1 class="text-center uppercase">Orden Publicitaria de Prensa</h1>
+    <table>
+      <col style="width:65%">
+      <col style="width:35%">    
+      <tr>
+        <td>Señor(a):</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>{{nombre_referencia}}</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>{{celular_referencia}}</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><strong>REPRESENTANTE COMERCIAL</strong><br><strong>{{razon_social}}</strong><br>Presente.-</td>
+        <td>
+          <!-- detalle derecho -->
+					<table class="table">
+            <tbody>
+              <tr>
+                <th class="header-gray">ODPP N°</th>
+                <td class="text-center">{{correlativo}}/{{gestion}}</td>
+              </tr>
+              <tr>
+                <th class="header-gray">Fecha:</th>
+                <td class="text-center">{{fecha}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <table class="table m-b-10">
+      <col style="width:10%">
+      <col style="width:30%">
+      <col style="width:10%">
+      <col style="width:20%">
+      <col style="width:15%">
+      <col style="width:15%">
+      <thead>
+        <tr class="encabezado">
+          <th>CAMPAÑA</th>
+          <th colspan=5>{{nombre_campana}}</th>
+        </tr>
+      </thead>
+        <tr>
+          <td class="header-gray"></td>
+          <td class="header-gray"><b>ARTE</b></td>
+          <td class="header-gray"><b>FECHA DE PUBLICACIÓN</b></td>
+          <td class="header-gray"><b>FORMATO</b></td>
+          <td class="header-gray"><b>UBICACIÓN</b></td>
+          <td class="header-gray"><b>MONTO</b></td>
+        </tr>
+        {{#each ordenes}}
+          <tr class="contenido">
+            <td>{{inc @index}}</td>
+            <td>{{nombre}}</td>
+            <td>{{fecha_publicacion}}</td>
+            <td>{{formato}}</td>
+            <td>{{ubicacion}}</td>
+            <td>{{costo}}</td>
+          </tr>
+        {{/each}}
+      <tr class="contenido">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Bs.:</td>
+        <td>{{total}}</td>
+      </tr>
+    </table>
+  </div>  
+  <div class="page-break"></div>

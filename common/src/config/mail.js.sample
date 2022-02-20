@@ -1,0 +1,21 @@
+'use strict';
+
+const debug = require('debug')('common:correo');
+
+const config = {
+  origen: '<email_sender>',
+  host: '<smpt>',
+  port: '<port>',
+  secure: false,
+  ignoreTLS: false,
+  auth: { // Estos datos solo son para desarrollo, para producción no son requeridos
+    user: 'usuario@agetic.gob.bo',
+    pass: '<password>'
+  },
+  tls: {
+    rejectUnauthorized: false
+  },
+  logging: s => debug(s)
+};
+
+module.exports = config;

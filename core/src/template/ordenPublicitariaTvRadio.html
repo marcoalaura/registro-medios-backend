@@ -1,0 +1,169 @@
+  <div class="container">
+		<h1 class="text-center uppercase">{{ titulo }}</h1>
+		<table>
+			<tr>
+				<td class="width-50">
+					<!-- detalle izquierdo -->
+					<table class="table m-b-10">
+						<thead>
+							<tr>
+								<th class="text-left width-40">CANAL</th>
+								<th colspan="2" class="header-gray">{{ orden.canal.nombre }}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+                <th class="text-left">ENCARGADO COMERCIAL</th>
+								<td colspan="2" class="text-center">
+									{{ orden.encargado.nombre }} 
+									{{#if orden.encargado.celular}}
+									 	<span>CEL. {{ orden.encargado.celular }}</span>	
+									{{/if}}
+								</td>									
+							</tr>
+							<tr>
+								<th class="text-left">CORREO ELECTRONICO</th>
+								<td colspan="2" class="text-center">
+								{{#each orden.correos}}
+									<p>{{correo}}</p>
+								{{/each}}
+								</td>
+							</tr>
+							<tr>
+								<th class="text-left">CAMPAÑA</th>
+								<td colspan="2" class="text-center uppercase"><strong>{{ orden.campana }}</strong></td>
+							</tr>
+							<tr>
+								<th class="text-left">SPOT</th>
+								<td colspan="2" class="text-center">{{ orden.spot }}</td>
+							</tr>
+							<tr>
+								<th class="text-left">DURACIÓN</th>
+								<td class="text-center width-30">{{ orden.duracion.tiempo }}</td>
+								<td class="text-center width-30">{{ orden.duracion.tipo }}</td>
+							</tr>
+							<tr>
+								<th class="text-left">MINISTERIO DE COMUNICACIÓN</th>
+								<td colspan="2" class="text-center"></td>
+							</tr>
+							<tr>
+								<th class="text-left">FECHA</th>
+								<td colspan="2" class="text-center">{{ orden.fecha }}</td>
+								<!-- <td colspan="2" class="text-center">06/12/2018</td> -->
+							</tr>
+							<tr>
+								<th class="text-left">COBERTURA</th>
+								<td colspan="2" class="text-center">{{ orden.cobertura }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+				<td class="width-20">
+					&nbsp; <!-- espacio -->
+				</td>
+				<td class="v-top width-30">
+					<!-- detalle derecho -->
+					<table class="table">
+						<thead>
+							<tr>
+								<th class="header width-40">{{ detalle.odp }} N°</th>
+								<th class="header-gray">{{ detalle.correlativo }}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>FECHA</th>
+								<td class="text-center">{{ orden.fecha }}</td>
+								<!-- <td class="text-center">06/12/2018</td> -->
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<!-- tabla principal -->
+					<table class="table m-b-10">
+						<thead>
+							<tr>
+								<th colspan="2" rowspan="2"></th>
+								<th colspan="{{ detalle.dias.length }}" class="gray">
+									{{detalle.mes}}
+								</th>
+								<th colspan="4">TOTAL</th>
+							</tr>
+							<tr>
+								{{#each detalle.dias}}
+									<th class="width-dia">{{dia}}</th>
+								{{/each}}
+								<th class="width-4">TOTAL</th>
+								<th class="width-4">SEG.</th>
+								<th class="width-4">BS</th>
+								<th class="width-6">TOTAL</th>
+							</tr>
+							<tr>
+								<!-- <th></th> -->
+								<th class="width-8">HORA</th>
+								<th>PROGRAMA</th>
+								{{#each detalle.dias}}
+									<th class="width-dia"> {{literal}}</th>
+								{{/each}}
+								<th>PASES</th>
+								<th>SPOT</th>
+								<th>SEG</th>
+								<th>COSTO</th>
+							</tr>
+						</thead>
+						<tbody>
+						{{#each medios}}
+							<tr {{#if rowspan}}class="separator"{{/if}}>
+								<td class="text-center">{{horaInicio}} - {{horaFin}}</td>
+								<td>{{nombre}}</td>
+								{{#each dias}}
+									<td class="width-dia text-center {{ class }}">{{cantidad}}</td>
+								{{/each}}
+								<td class="text-right">{{nroPases}}</td>
+								<td class="text-right">{{duracion}}</td>
+								<td class="text-right">{{tarifaSegundo}}</td>
+								<td class="text-right">{{totalCosto}}</td>
+							</tr>
+						{{/each}}
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="2"></td>
+								{{#each detalle.sumatoriaDias}}
+									<td class="text-center">{{cantidad}}</td>
+								{{/each}}
+								<td class="text-right">{{detalle.totalPases}}</td>
+							</tr>
+						</tfoot>
+					</table>
+					<table>
+						<tr>
+							<td class="width-50 v-top">
+								<table class="table">
+									<tr>
+										<th class="text-left">Observaciones</th>
+									</tr>
+									<tr>
+										<td>{{detalle.observaciones}}</td>
+									</tr>
+								</table>
+							</td>
+							<td class="width-20"></td>
+							<td class="width-30 v-top">
+								<table class="table">
+									<tr>
+										<th class="width-50">LÍQUIDO PAGABLE Bs.</th>
+										<th class="header-gray text-center">{{detalle.totalLiquidoPagable}}</th>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+  </div>
+  <div class="page-break"></div>

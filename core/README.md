@@ -1,6 +1,3 @@
-# Plataforma  de registro de medios de comunicación
-La plataforma de registro de medios de comunicación realiza el registro de Medios de Comunicación, con el objetivo de poder realizar el proceso de elaboración de campañas publicitarias, en la cuál cualquier medio de comunicación puede solicitar poder realizar una pauta publicitaria, cumpliendo los requisitos que la plataforma le exija.
-
 # Módulo de usuarios, módulos y permisos
 
 Este módulo contiene los siguientes modelos:
@@ -69,19 +66,4 @@ npm install
 # 3. Ejecutar lo siguiente para crear las tablas, seeders y tests unitarios de las 3 capas del DDD, esto eliminará las tablas y los datos de estas para reescribirlos
 npm test
 
-```
-Las pruebas unitarias relacionadas directamente al proyecto se encuentra dentro de la carpeta "core/".
-
-Desde ahi se puede realizar las siguientes pruebas:
-
-``` bash
-cd core/
-npm run test
-
-# tambien se puede ejecutar por separado
-npm run test-db
-
-npm run test-domain
-
-npm run test-app
 ```

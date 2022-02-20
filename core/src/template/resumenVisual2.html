@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Resumen para la Visual</title>
+  <style>
+    body,
+    html {
+      margin: 0px;
+      width: 100%;
+      height: 100%;
+      font-family: Liberation Sans;
+    }
+
+    body {
+      background: url("logoReporte.png");
+      background-repeat: no-repeat;
+      background-position: top 10px left 900px;
+    }
+
+    .fecha_rum {
+      position: fixed;
+      right: 70px;
+      bottom: 40px;
+      font-size: 12px;
+    }
+
+    .direccion {
+      position: fixed;
+      left: 60px;
+      bottom: 40px;
+      font-size: 10px;
+    }
+
+    .cabecera {
+      width: 750px;
+      position: fixed;
+      top: 120px;
+      left: 45px;
+      font-size: 18px;
+    }
+
+    .cuerpo {
+      width: 750px;
+      position: fixed;
+      top: 280px;
+      left: 45px;
+      font-size: 18px;
+    }
+
+    .titulo {
+      position: fixed;
+      left: 300px;
+      font-weight: bold;
+      word-wrap: break-word;
+      font-size: 28px;
+    }
+
+    .encabezado td {
+      font-weight: bold;
+      word-wrap: break-word;
+    }
+
+    .contenido td {
+      font-size: 12px;
+      padding-bottom: 2px;
+    }
+
+    td {
+      word-wrap: break-word;
+    }
+
+    @media all {
+      .page-break {
+        display: none;
+      }
+    }
+
+    @media print {
+      .page-break {
+        display: block;
+        page-break-before: always;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <h2>MEDIOS</h2>
+  {{#each this.campanaMedios}}
+        <p>{{referencia.persona.nombre_completo}}</p>
+  {{/each}}
+  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque dignissimos quam sapiente inventore sequi officiis omnis facilis explicabo, rerum nemo mollitia aliquam doloremque nesciunt consequatur odio nihil expedita quaerat. Qui.</p> -->
+  <p class="titulo" align="center">Resumen de la visual</p>
+  <table class="cabecera">
+    <col style="width:65%">
+    <col style="width:35%">
+    <tr class="contenido">
+      <td>Señor(a):</td>
+      <td></td>
+    </tr>
+    <tr class="contenido">
+      <td>{{nombre_referencia}}</td>
+      <td></td>
+    </tr>
+    <tr class="contenido">
+      <td>{{celular_referencia}}</td>
+      <td></td>
+    </tr>
+    <tr class="contenido">
+      <td><b>REPRESENTANTE COMERCIAL</b></td>
+      <td></td>
+    </tr>
+    <tr class="contenido">
+      <td><b>{{razon_social}}</b></td>
+      <td>ODPP N°{{correlativo}}/{{gestion}}</td>
+    </tr>
+    <tr class="contenido">
+      <td>Presente.-</td>
+      <td>Fecha:{{fecha}}</td>
+    </tr>
+  </table>
+  <div class="page-break"></div>
+  <table class="cuerpo" border=1 style="border-collapse:collapse;padding:2px; ">
+    <col style="width:10%">
+    <col style="width:30%">
+    <col style="width:10%">
+    <col style="width:20%">
+    <col style="width:15%">
+    <col style="width:15%">
+    <tr class="encabezado">
+      <td>CAMPAÑA22</td>
+      <td colspan=5>{{nombre_campana}}</td>
+    </tr>
+    <tr class="contenido">
+      <td></td>
+      <td><b>ARTE</b></td>
+      <td><b>FECHA DE PUBLICACIÓN</b></td>
+      <td><b>FORMATO</b></td>
+      <td><b>UBICACIÓN</b></td>
+      <td><b>MONTO</b></td>
+    </tr>
+    {{#each this.ordenes}}
+    <tr class="contenido">
+      <td>{{inc @index}}</td>
+      <td>{{tipo_costo}}</td>
+      <td>{{fecha_publicacion}}</td>
+      <td>{{formato}}</td>
+      <td>{{ubicacion}}</td>
+      <td>{{costo}}</td>
+    </tr>
+    {{/each}}
+    <tr class="contenido">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Bs.:</td>
+      <td>{{total}}</td>
+    </tr>
+  </table>
+</body>
+
+</html>

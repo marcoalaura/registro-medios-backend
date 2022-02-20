@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Resumen Visual</title>
+  <link rel="stylesheet" type="text/css" href="http://localhost:3000/css/main.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center uppercase">{{unidad_solicitante}}</h1>
+    <table>
+      <col style="width:50%">
+      <col style="width:15%">
+      <col style="width:35%">
+      <tr>
+        <td>
+          <!-- detalle derecho -->
+					<table class="table">
+            <tbody>
+              <tr>
+                <th class="header-gray">CAMPAÑA</th>
+                <td colspan="2" class="text-center">{{nombre_camapana}}</td>
+              </tr>
+              <tr>
+                <th class="header-gray">DESDE</th>
+                <td class="text-center">{{fecha_inicio}}</td>
+                <td rowspan="2">{{dias_campana}} DÍAS</td>
+              </tr>
+              <tr>
+                <th class="header-gray">HASTA</th>
+                <td class="text-center">{{fecha_fin}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td></td>
+        <td>
+          <!-- detalle derecho -->
+					<table class="table">
+            <tbody>
+              <tr>
+                <th class="header-gray">VISUAL {{sigla}} N°</th>
+                <td class="text-center">{{correlativo}}</td>
+                <!-- <td class="text-center">{{correlativo}}/{{gestion}}</td> -->
+              </tr>
+              <tr>
+                <th class="header-gray">FECHA</th>
+                <td class="text-center">{{fecha}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <h2 class="text-center uppercase">{{tipo}}</h2>
+    <div class="page-break"></div>
+    <table class="table m-b-10">
+      <col style="width:10%">
+      <col style="width:30%">
+      <col style="width:10%">
+      <col style="width:20%">
+      <col style="width:15%">
+      <col style="width:15%">
+      <tr>
+        <td class="header-gray"><b>N°</b></td>
+        <td class="header-gray"><b>N° DE PROCESO</b></td>
+        <td class="header-gray"><b>MEDIOS TELEVISIÓN</b></td>
+        <td class="header-gray"><b>TARIFA SEG. (Bs.)</b></td>
+        <td class="header-gray"><b>DURACIÓN SPOT (Seg.)</b></td>
+        <td class="header-gray"><b>COSTO PASE (Bs.)</b></td>
+        <td class="header-gray"><b>COSTO PAQUETE</b></td>
+        <td class="header-gray"><b>FRECUENCIA DE PASES POR DÍA</b></td>
+        <td class="header-gray"><b>PASES TOTAL</b></td>
+        <td class="header-gray"><b>COSTO TOTAL (Bs.)</b></td>
+      </tr>
+      {{#each medios}}
+        <tr align="right">
+          <td>{{inc @index}}</td>
+          <td>{{nro_proceso}}</td>
+          <td>{{medio}}</td>
+          <td>{{tarifa_segundo}}</td>
+          <td>{{duracion}}</td>
+          <td>{{costo_por_pase}}</td>
+          <td>{{costo_paquete}}</td>
+          <td>{{frecuencia_dia}}</td>
+          <td>{{total_pases}}</td>
+          <td>{{costo_total_formateado}}</td>
+        </tr>
+      {{/each}}
+        <tr align="right">
+          <td colspan="9">
+            TOTAL Bs.
+          </td>
+          <td>{{costo_total}}</td>
+        </tr>
+    </table>
+  </div>  
+</body>
+</html>

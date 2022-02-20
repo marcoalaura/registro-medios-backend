@@ -1,0 +1,52 @@
+{
+  "name": "core",
+  "version": "1.0.0",
+  "description": "Módulos centrales del Sistema de Pauteo",
+  "main": "src/application/index.js",
+  "scripts": {
+    "test-app": "npm run setup && npm run seeders && ava src/application/tests/ --verbose",
+    "test": "npm run setup && npm run seeders && npm run test-db && npm run test-domain",
+    "test-db": "ava src/infrastructure/tests/ --verbose",
+    "test-domain": "ava src/domain/tests/ --verbose",
+    "setup": "DEBUG=pauteo:* node src/infrastructure/setup.js && sequelize db:seed:all --seeders-path src/infrastructure/seeders --config src/infrastructure/lib/config-seeders.js",
+    "seeders": "sequelize db:seed:all --seeders-path src/infrastructure/seeders --config src/infrastructure/lib/config-seeders.js",
+    "lint": "semistandard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.agetic.gob.bo:base/base-usuarios.git"
+  },
+  "keywords": [
+    "Módulo",
+    "Core",
+    "Pauteo",
+    "Ministerio de Comunicación"
+  ],
+  "author": "Ronald Vallejos <rvallejos@agetic.gob.bo>",
+  "license": "MIT",
+  "dependencies": {
+    "app-iop": "git+ssh://git@gitlab.agetic.gob.bo:base/app-iop.git",
+    "app-logs": "^1.1.4",
+    "app-params": "^0.2.1",
+    "casual": "^1.5.19",
+    "common": "file:../common",
+    "cron": "^1.3.0",
+    "defaults": "^1.0.3",
+    "email-validator": "^2.0.3",
+    "graphql": "^0.13.1",
+    "handlebars": "^4.0.11",
+    "html-pdf": "^2.2.0",
+    "inquirer": "^5.1.0",
+    "jsonwebtoken": "^8.2.0",
+    "minimist": "^1.2.0",
+    "npm": "^6.0.1",
+    "pg": "^7.4.1",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.33.4",
+    "sequelize-cli": "^4.0.0"
+  },
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "semistandard": "^12.0.0"
+  }
+}
